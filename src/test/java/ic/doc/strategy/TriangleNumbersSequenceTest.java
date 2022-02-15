@@ -10,23 +10,23 @@ import org.junit.Test;
 
 public class TriangleNumbersSequenceTest {
 
-    final SequenceGenerator tri = new SequenceGenerator(new TriangleNumbersSequence());
+    final Sequence tri = new Sequence(new TriangleNumbersTerm());
 
     @Test
     public void definesFirstTermToBeOne() {
-        assertThat(tri.sequence.term(0), is(1));
+        assertThat(tri.getNthTerm(0), is(1));
     }
 
     @Test
     public void definesSecondAndThirdTermsToBeThreeAndSix() {
-        assertThat(tri.sequence.term(1), is(3));
-        assertThat(tri.sequence.term(2), is(6));
+        assertThat(tri.getNthTerm(1), is(3));
+        assertThat(tri.getNthTerm(2), is(6));
     }
 
     @Test
     public void isUndefinedForNegativeIndices() {
         try {
-            tri.sequence.term(-1);
+            tri.getNthTerm(-1);
             fail("should have thrown exception");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), containsString("Not defined for indices < 0"));

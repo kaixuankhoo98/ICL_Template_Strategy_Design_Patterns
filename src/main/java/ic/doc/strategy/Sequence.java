@@ -2,12 +2,18 @@ package ic.doc.strategy;
 
 import java.util.Iterator;
 
-public class SequenceGenerator implements Iterable<Integer> {
-    // Context for the sequences
-    sequenceValue sequence;
+public class Sequence implements Iterable<Integer> {
+    private TermGenerator sequence;
 
-    public SequenceGenerator(sequenceValue s) {
+    public Sequence(TermGenerator s) {
         sequence = s;
+    }
+
+    public int getNthTerm(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("Not defined for indices < 0");
+        } // negative index handling
+        return sequence.term(i);
     }
 
     public Iterator<Integer> iterator() {

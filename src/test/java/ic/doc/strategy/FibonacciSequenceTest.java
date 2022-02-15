@@ -10,27 +10,27 @@ import org.junit.Test;
 
 public class FibonacciSequenceTest {
 
-  final SequenceGenerator fib = new SequenceGenerator(new FibonacciSequence());
+  final Sequence fib = new Sequence(new FibonacciTerm());
 
   @Test
   public void definesFirstTwoTermsOfFibonacciToBeOne() {
-    assertThat(fib.sequence.term(0), is(1));
-    assertThat(fib.sequence.term(1), is(1));
+    assertThat(fib.getNthTerm(0), is(1));
+    assertThat(fib.getNthTerm(1), is(1));
   }
 
   @Test
   public void definesSubsequentTermsToBeTheSumOfThePreviousTwo() {
 
-    assertThat(fib.sequence.term(2), is(2));
-    assertThat(fib.sequence.term(3), is(3));
-    assertThat(fib.sequence.term(4), is(5));
+    assertThat(fib.getNthTerm(2), is(2));
+    assertThat(fib.getNthTerm(3), is(3));
+    assertThat(fib.getNthTerm(4), is(5));
   }
 
   @Test
   public void isUndefinedForNegativeIndices() {
 
     try {
-      fib.sequence.term(-1);
+      fib.getNthTerm(-1);
       fail("should have thrown exception");
     } catch (IllegalArgumentException e) {
       assertThat(e.getMessage(), containsString("Not defined for indices < 0"));
