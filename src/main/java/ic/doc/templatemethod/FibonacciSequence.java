@@ -8,8 +8,7 @@ public class FibonacciSequence extends NumberSequence {
   public int sequenceValue(int i) {
     if (i < 2) {
       return 1;
-    } // First values
+    }
     return term(i - 1) + term(i - 2);
   }
-
 }
