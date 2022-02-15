@@ -11,41 +11,34 @@ import org.junit.Test;
 public class FibonacciSequenceTest {
 
   final SequenceGenerator fib = new SequenceGenerator(new FibonacciSequence());
-  final SequenceGenerator tri = new SequenceGenerator(new TriangleNumbersSequence());
 
   @Test
-  public void checksFirstTwoTerms() {
-    // fib
+  public void definesFirstTwoTermsOfFibonacciToBeOne() {
     assertThat(fib.sequence.term(0), is(1));
     assertThat(fib.sequence.term(1), is(1));
-
-    // tri
-    assertThat(tri.sequence.term(0), is(1));
-    assertThat(tri.sequence.term(1), is(3));
   }
 
-//  @Test
-//  public void definesSubsequentTermsToBeTheSumOfThePreviousTwo() {
-//
-//    assertThat(sequence.term(2), is(2));
-//    assertThat(sequence.term(3), is(3));
-//    assertThat(sequence.term(4), is(5));
-//  }
-//
-//  @Test
-//  public void isUndefinedForNegativeIndices() {
-//
-//    try {
-//      sequence.term(-1);
-//      fail("should have thrown exception");
-//    } catch (IllegalArgumentException e) {
-//      assertThat(e.getMessage(), containsString("Not defined for indices < 0"));
-//    }
-//  }
-//
-//  @Test
-//  public void canBeIteratedThrough() {
-//    assertThat(sequence, beginsWith(1, 1, 2, 3, 5));
-//  }
+  @Test
+  public void definesSubsequentTermsToBeTheSumOfThePreviousTwo() {
 
+    assertThat(fib.sequence.term(2), is(2));
+    assertThat(fib.sequence.term(3), is(3));
+    assertThat(fib.sequence.term(4), is(5));
+  }
+
+  @Test
+  public void isUndefinedForNegativeIndices() {
+
+    try {
+      fib.sequence.term(-1);
+      fail("should have thrown exception");
+    } catch (IllegalArgumentException e) {
+      assertThat(e.getMessage(), containsString("Not defined for indices < 0"));
+    }
+  }
+
+  @Test
+  public void canBeIteratedThrough() {
+    assertThat(fib, beginsWith(1, 1, 2, 3, 5));
+  }
 }
