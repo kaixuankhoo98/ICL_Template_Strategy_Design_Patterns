@@ -4,7 +4,14 @@ import java.util.Iterator;
 
 abstract class NumberSequence implements Iterable<Integer> {
 
-    abstract int term(int i);
+    public int term(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("Not defined for indices < 0");
+        }
+        return sequenceValue(i); // created abstract sequenceValue function to get next term.
+    }
+
+    abstract int sequenceValue(int i); // abstract function that's different between each class
 
     public Iterator<Integer> iterator() {
         return new SequenceIterator();

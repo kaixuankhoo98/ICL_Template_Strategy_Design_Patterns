@@ -5,13 +5,10 @@ import java.util.Iterator;
 public class TriangleNumbersSequence extends NumberSequence {
 
     @Override
-    public int term(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("Not defined for indices < 0");
-        }
+    public int sequenceValue(int i) {
         if (i < 1) {
             return 1;
-        }
+        } // First value
         return ((i + 1) * (i + 2)) / 2;
     }
 }
