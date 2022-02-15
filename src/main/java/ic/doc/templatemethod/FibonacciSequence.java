@@ -2,7 +2,7 @@ package ic.doc.templatemethod;
 
 import java.util.Iterator;
 
-public class FibonacciSequence implements Iterable<Integer> {
+public class FibonacciSequence extends NumberSequence implements Iterable<Integer> {
 
   public int term(int i) {
     if (i < 0) {

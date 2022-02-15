@@ -2,7 +2,7 @@ package ic.doc.templatemethod;
 
 import java.util.Iterator;
 
-public class TriangleNumbersSequence implements Iterable<Integer> {
+public class TriangleNumbersSequence extends NumberSequence implements Iterable<Integer> {
 
     public int term(int i) {
         if (i < 0) {
@@ -11,7 +11,7 @@ public class TriangleNumbersSequence implements Iterable<Integer> {
         if (i < 1) {
             return 1;
         }
-        return ((i+1)*(i+2))/2;
+        return ((i + 1) * (i + 2)) / 2;
     }
 
     public Iterator<Integer> iterator() {
